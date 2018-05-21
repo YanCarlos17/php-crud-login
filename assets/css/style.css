@@ -1,8 +1,73 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300i,400');
-
 body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-
+    text-align: center;
 }
+input[type="text"],input[type="password"], input[type="email"]{
+    outline: none;
+    padding: 10px;
+    display: block;
+    width: 300px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+input[type="submit"]{
+    padding: 10px;
+    color: #fff;
+    background-color: rgba(104, 157, 235, 0.885);
+    width: 320px;
+    border-radius: 5px;
+    margin: 20px auto;
+    cursor: pointer;
+    margin-top: 0;
+}
+input[type="submit"]:hover{
+    background-color: rgb(59, 43, 154);
+}
+.header{
+    background-color: rgb(27, 154, 199);
+    display: block;
+    margin-top: 0px;
+    height: 25px;
+    padding: 10px
+}
+
+.header__list{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+    margin-top: 0px;
+} 
+    .list__item{
+        margin: 0 7px;
+        background-color: rgb(27, 154, 199);
+    }
+        .list__item:hover{
+            background-color: rgb(96, 94, 94);
+        } 
+        .list__item a{
+            text-decoration: none;
+            color: #fff;
+        }
+    .list__item ul{
+        display:none;
+        position: absolute;
+        min-width: 140px;
+        list-style: none;
+    }
+        .list__item ul li{
+            color: white;
+        }
+    .header__list li:hover > ul{
+        display:block;
+    }
+
+    .header__list li ul li ul{
+        right: -125px;
+    }
+.form-login{
+    margin-top:50px;
+}    
