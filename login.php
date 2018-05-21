@@ -12,22 +12,16 @@
 
     <?php
     include('partials/database.php');
-    $usuario=mysqli_real_escape_string($con, $_POST['user']);
+    $usuario=mysqli_real_escape_string($con, $_POST['user']);   
     $pass=mysqli_real_escape_string($con, $_POST['pass']);
-    $sqli="SELECT * FROM registro";
-    $result=mysqli_query($con,$sqli);
-        
-         
+    $sqli="SELECT nombre,seña FROM registros WHERE nombre='$usuario'";
+        if(!mysqli_query($con,$sqli)){
+            die('Error:'.mysqli_error($con));
+        }
+        else
+        {
+            echo"<script>alert('Acceso autorizado');location.href='inicio.php'</script>";
+        }
     ?>
-<!-- echo "<script>alert('Formulario enviado'); location.href='inicio.php'</script>"; -->
-    <table>
-        <tr>
-            <td><?php ?></td>
-            <td><?php ?></td>
-            <td><?php ?></td>
-            <td><?php ?></td>
-        </tr>  
-    </table>
-
 </body>
 </html>
