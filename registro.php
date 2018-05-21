@@ -10,9 +10,14 @@
         <label>Contraseña</label><br>
             <input type="password" name="password" id="password" placeholder="Password" required><br>
         <label>Confirmar contraseña</label><br>
-            <input type="password" name="confirmacion" id="confirmacion" placeholder="Confirm Password" required><br>    
+            <input type="password" name="confirmacion" id="confirmacion" placeholder="Confirm Password" required><br> 
+            <label>Seleccione Rol</label><br>
+        <select name="rol" id="rol"><br>
+            <option value="1">Administrador</option>
+            <option value="2">Empleado</option>
+        </select><br>     
         <input type="submit" value="SignUp"><br>
-        <input type="checkbox" name="accept" id="accept">      Acepto Términos y condiciones</input>
+        <input type="checkbox" name="accept" id="accept" required>  Acepto Términos y condiciones</input>
     </form>
     <?php
     include('partials/database.php');
@@ -20,13 +25,16 @@
     $nombre=$_POST['nombre'];
     $mail=$_POST['mail'];
     $pass=password_hash($_POST['password'],PASSWORD_BCRYPT);
-    $sqli="INSERT INTO registros (nombre,correo,seña)
-           VALUES ('$nombre','$mail','$pass')";
+    $rol=$_POST['rol'];
+    $sqli="INSERT INTO registros (nombre,email,seña,rol)
+           VALUES ('$nombre','$mail','$pass','$rol')";
         if(!mysqli_query($con,$sqli)){
-            die('Erros:'.mysqli_error($con));
-        }else{
-            echo "<h3>Registro Exitoso<h3>";
-        }
+            die('Error:' . mysqli_error($con));
+        }else
+        {
+            header("location:http://www.youtube.com" );
+        } 
+         
         echo"<a href='login.php'>LogIn</a>";
     ?>
 </html>
